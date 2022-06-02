@@ -45,10 +45,10 @@
     transform: translateX(0px);
 }
 
-.app-list-item.important .app-list-item-label {
+.app-list-item.added .app-list-item-label {
   color: #FFD700;
 }
 
-.app-list-item.important .btn-star {
+.app-list-item.added .btn-star {
     color: #aeaeae;
 }
