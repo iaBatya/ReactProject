@@ -19,11 +19,11 @@ const Header = styled.div`
     }
 `
 
-const AppHeader = () => {
+const AppHeader = ({liked, allPosts}) => {
     return (
-        <Header as='a'>
+        <Header>
             <h1>React Developer Test</h1>
-            <h2>5 записей, из них добавлено в корзину 0</h2>
+            <h2>Products - {allPosts}. Added in cart - {liked}</h2>
         </Header>
     )
 }

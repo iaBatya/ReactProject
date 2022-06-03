@@ -1,32 +1,10 @@
 import React, {Component} from "react";
 import './post-list-item.css';
 export default class PostListItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            added: false,
-            like: false
-        };
-        this.onAdded = this.onAdded.bind(this);
-        this.onLike = this.onLike.bind(this);
-    }
-
-    onAdded() {
-        this.setState(({added}) => ({
-            added: !added
-        }))
-    }
-
     
-    onLike() {
-        this.setState(({like}) => ({
-            like: !like
-        }))
-    }
 
     render() {
-        const {label, onDelete} = this.props;
-        const {added, like} = this.state;
+        const {label, onDelete, onToggleAdded, onToggleLiked, added, like} = this.props;
         let classNames = 'app-list-item d-flex justify-content-between';
         if  (added) {
             classNames += ' added';
@@ -40,14 +18,14 @@ export default class PostListItem extends Component {
         return (
             <div className={classNames}>
                 <span className="app-list-item-label"
-                onClick={this.onLike}>
+                onClick={onToggleLiked}>
                     {label}
                 </span>
                 <div className="d-flex justify-content-center align-items-center">
                     <button 
                     type="button" 
                     className="btn-star btn-sm"
-                    onClick={this.onAdded}>
+                    onClick={onToggleAdded}>
                         <i className="fa fa-star"></i>
                     </button>
                     <button 
